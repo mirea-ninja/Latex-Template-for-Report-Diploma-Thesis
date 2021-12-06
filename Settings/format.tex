@@ -1,0 +1,55 @@
+%%%%%%%%%%%%%%%%% Оформление ГОСТА%%%%%%%%%%%%%%%%%
+
+% Все параметры указаны в ГОСТЕ на 2021, а именно:
+
+% Шрифт для курсовой Times New Roman, размер – 12 пт.
+\setdefaultlanguage[spelling=modern]{russian}
+    \setotherlanguage{english}
+\defaultfontfeatures{Ligatures={TeX},Renderer=Basic} % задаёт свойства шрифтов по умолчанию
+\setmainfont{Times New Roman} 
+\setromanfont{Times New Roman} 
+\newfontfamily\cyrillicfont{Times New Roman}
+
+
+% Междустрочный интервал должен быть равен 1.5.
+\linespread{1.5} % междустрочный интервал
+
+
+% Каждая новая строка должна начинаться с отступа равного 1.25 сантиметра.
+\setlength{\parindent}{1.25cm} % отступ для абзаца
+
+
+% Текст, который является основным содержанием, должен быть выровнен по ширине по умолчанию включен из-за типа документа в main.tex
+
+% Ширина левого поля должна равняться 3 сантиметра, а правое 1 сантиметра. Верхнее и нижнее должны равняться 2 сантиметра.
+\usepackage[left=3cm,right=1.5cm,top=2cm,bottom=2cm]{geometry} % поля
+
+%%%%%%%%%%%%%%%%%% Дополнения %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+% Внесение titlepage в учёт счётчика страниц
+\makeatletter
+\renewenvironment{titlepage} {
+	\thispagestyle{empty}
+}
+
+
+% Цвет гиперссылок и цитирования
+\usepackage{hyperref} 
+ \hypersetup{ 
+     colorlinks=true, 
+     linkcolor=black, 
+     filecolor=blue, 
+     citecolor = black,       
+     urlcolor=purple, 
+     }
+     
+% Включение в нумерацию рисунка номеров разделов     
+\counterwithin{figure}{section}
+\counterwithin{figure}{subsection}
+\counterwithin{figure}{subsubsection}
+
