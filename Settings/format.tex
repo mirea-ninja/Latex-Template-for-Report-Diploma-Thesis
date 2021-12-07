@@ -14,7 +14,7 @@
 % шрифт для URL-ссылок
 \urlstyle{same} 
 
-% Междустрочный интервал должен быть равен 1.5.
+% Междустрочный интервал должен быть равен 1.5 сантиметра.
 \linespread{1.5} % междустрочный интервал
 
 
@@ -29,7 +29,8 @@
 
 %%%%%%%%%%%%%%%%%% Дополнения %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+% Путь до папки с изображениями
+\graphicspath{ {./Images/} }
 
 % Внесение titlepage в учёт счётчика страниц
 \makeatletter
@@ -45,11 +46,12 @@
      linkcolor=black, 
      filecolor=blue, 
      citecolor = black,       
-     urlcolor=purple, 
+     urlcolor=blue, 
      }
-     
-% Включение в нумерацию рисунка номеров разделов     
-\counterwithin{figure}{section}
-\counterwithin{figure}{subsection}
-\counterwithin{figure}{subsubsection}
+    
 
+% Нумерация рисунков
+\counterwithin{figure}{section}
+
+% Нумерация таблиц
+\counterwithin{table}{section}
