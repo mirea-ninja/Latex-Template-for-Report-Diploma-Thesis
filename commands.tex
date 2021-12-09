@@ -15,3 +15,17 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+
+%%%%%%%%%% \codefromfile  %%%%%%%%%%%%%%%%%%
+
+% \codefromfile {Имя файла}
+
+\newcommand{\codefromfile}[1]{
+\begin{code}
+	\inputminted[breaklines=true, framesep=10pt, fontsize=\footnotesize, firstline=1, lastline=33]{Java}{Listings/#1}
+\end{code}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -5,11 +5,14 @@
 % Шрифт для курсовой Times New Roman, размер – 14 пт.
 \setdefaultlanguage[spelling=modern]{russian}
     \setotherlanguage{english}
-% задаёт свойства шрифтов по умолчанию
-\defaultfontfeatures{Ligatures={TeX},Renderer=Basic} 
+    
+\setmonofont{Times New Roman}
 \setmainfont{Times New Roman} 
 \setromanfont{Times New Roman} 
 \newfontfamily\cyrillicfont{Times New Roman}
+
+
+
 
 % шрифт для URL-ссылок
 \urlstyle{same} 
@@ -55,3 +58,23 @@
 
 % Нумерация таблиц
 \counterwithin{table}{section}
+
+\counterwithin{table}{section}
+
+% шрифт для листингов с лигатурами
+\setmonofont{FiraCode-Regular.otf}[
+	SizeFeatures={Size=10},
+	Path = Settings/,
+	Contextuals=Alternate
+]
+
+
+
+% настройка подсветки кода и окружения для листингов
+%\usemintedstyle{colorful} % делает подсветку для кода
+\newenvironment{code}{\captionsetup{type=listing}}{}
+
+% Стиль листинга кода
+\usemintedstyle{bw}
+
+% Посмотреть ещё стили можно тут https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted
