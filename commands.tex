@@ -2,12 +2,12 @@
 
 %%%%%%%%%%%% \image %%%%%%%%%%%%%%%%%%
 
-% \image {Имя изображения.расширение}{Подпись к рисунку}
+% \image {Имя изображения.расширение}{Подпись к рисунку}{Скейл Изображения}
 
-\newcommand{\image}[2]{
+\newcommand{\image}[3]{
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=\textwidth]{#1}
+	\includegraphics[width=#3\textwidth]{#1}
 	\caption{#2}
 \end{figure}
 }
@@ -21,9 +21,9 @@
 
 % \codefromfile {Имя файла}
 
-\newcommand{\codefromfile}[1]{
+\newcommand{\codefromfile}[2]{
 \begin{code}
-	\inputminted[breaklines=true, framesep=10pt, fontsize=\footnotesize, firstline=1, lastline=33]{Java}{Listings/#1}
+	\inputminted[breaklines=true, framesep=10pt, fontsize=\footnotesize, firstline=1,]{#2}{Listings/#1}
 \end{code}
 }
 
