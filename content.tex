@@ -19,9 +19,9 @@
 \section{Основной текст}
 Соображения высшего порядка, а также дальнейшее развитие различных форм деятельности требует от нас анализа модели развития. Равным образом выбранный нами инновационный путь обеспечивает широкому кругу специалистов участие в формировании новых предложений?\\
 Равным образом рамки и место обучения кадров требует определения и уточнения существующих финансовых и административных условий.
-Дорогие друзья, социально-экономическое развитие требует от нас анализа экономической целесообразности принимаемых решений? \cite{kistyakovskii} % здесь \citep используется для вставки цитирования в скобках
+Дорогие друзья, социально-экономическое развитие требует от нас анализа экономической целесообразности принимаемых решений? \cite{kistyakovskii} % здесь \cite используется для вставки цитирования в скобках
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Рисунки}
 
 
@@ -106,6 +106,42 @@
     \[
     \lim_{x\to\infty} f(x)
     \]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Листинги}
+
+\begin{lstlisting}[language=Java, caption=Кириллица в листинге не имеет подсветки]
+class HelloWorldApp {
+    public static void main(String[] args) {
+        System.out.println("Hello, мир!"); // Коментарий на кириллице
+        for (int i = 0; i < 100; ++i) {
+            System.out.println(i); // Latin comment
+        }
+    }
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=SQL, caption=Пример на SQL]
+SELECT Orders.OrderID, Customers.CustomerName
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+\end{lstlisting}
+
+\begin{lstlisting}[language=haskell, caption=Пример на Haslkell]
+quicksort :: (Ord a) => [a] -> [a]
+quicksort [] = []
+quicksort (x:xs) =
+  let smallerSorted = quicksort [a | a <- xs, a <= x]
+      biggerSorted = quicksort [a | a <- xs, a > x]
+  in  smallerSorted ++ [x] ++ biggerSorted
+\end{lstlisting}
+
+
+
+\lstinputlisting[language=Python, caption=Листинг из файла]{Listings/main.py}
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Символы}
