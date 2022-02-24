@@ -1,0 +1,31 @@
+% Список пользовательских команд 
+
+%%%%%%%%%%%% \image %%%%%%%%%%%%%%%%%%
+
+% \image {Имя изображения.расширение}{Подпись к рисунку}{Скейл Изображения}
+
+\newcommand{\image}[3]{
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=#3\textwidth]{#1}
+	\caption{#2}
+\end{figure}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%% \codefromfile  %%%%%%%%%%%%%%%%%%
+
+% \codefromfile {Имя файла}
+
+\newcommand{\codefromfile}[2]{
+\begin{code}
+	\inputminted[breaklines=true, framesep=10pt, fontsize=\footnotesize, firstline=1,]{#2}{Listings/#1}
+\end{code}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
