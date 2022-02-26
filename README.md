@@ -46,6 +46,6 @@
 ![Латех4](https://user-images.githubusercontent.com/50325702/145113575-d8136e3b-f10b-43c8-a275-372a9f60deac.gif)
 
 # Авторы
-* Разработкчик [Stulk3](https://github.com/Stulk3)
+* Разработчик [Stulk3](https://github.com/Stulk3)
 * Спасибо [SyntOwl](https://github.com/SyntOwl) за подборку программ, 
 * Спасибо [ValeryVerkhoturov](https://github.com/ValeryVerkhoturov) за помощь с шаблоном
