@@ -1,0 +1,387 @@
+% !TeX program = xelatex
+\documentclass[14pt, a4paper, titlepage]{extarticle}
+
+\usepackage[english,main=russian]{babel}
+\usepackage{fontspec}
+\setmainfont{Times New Roman} % Если возникают проблемы при компиляции с данной строкой, необходимо установить на компьютер Times New Roman 
+\usepackage{newtxmath} % Поменять гарнитуру в фомулах на Times New Roman
+
+\usepackage[left=30mm, right=15mm, top=20mm, bottom=20mm]{geometry}
+
+\usepackage{indentfirst} % Красная строка у первого абзаца раздела
+
+\usepackage{graphicx}
+
+\parindent=1.25cm % Размер красной строки
+
+\parskip=0pt % Отступ между абзацами
+
+\righthyphenmin=2 % Разрешить переносить слоги в 2 буквы (стандартное значение 3)
+
+\linespread{1.3} % полуторный межстрочный интервал
+
+\usepackage{tocbibind} % Добавить раздел оглавление в оглавление
+
+% Настройка заголовка оглавления
+\addto\captionsrussian{\renewcommand{\contentsname}{Оглавление}}
+
+\usepackage[normalem]{ulem} % underline some lines
+
+
+\usepackage{tocloft}
+% Формат оглавления
+\renewcommand\cfttoctitlefont{\hfill\fontsize{16pt}{16pt}\selectfont\bfseries\MakeUppercase}
+\renewcommand\cftaftertoctitle{\hfill\hfill}
+
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % Добавить точки у разделов в оглавлении
+
+% Настройка раздела, подраздела, подподраздела
+\usepackage{titlesec}
+\titleformat{\section}{\parskip=6pt\filcenter\fontsize{16pt}{16pt}\selectfont\bfseries\uppercase}{\thesection}{.5em}{}
+\titleformat{\subsection}{\filcenter\bfseries}{\thesubsection}{.5em}{}
+\titleformat{\subsubsection}{\filcenter\bfseries}{\thesubsubsection}{.5em}{}
+
+\AddToHook{cmd/section/before}{\clearpage} % Начинать раздел с новой страницы
+
+\renewenvironment{abstract}{\clearpage\section*{\MakeUppercase{\abstractname}}}{\clearpage}
+
+\labelwidth=1.25cm % Горизонтальный отступ у элемента списка
+
+% Ненумерованные списки разной вложенности
+\renewcommand\labelitemi{--}
+\renewcommand\labelitemii{--}
+\renewcommand\labelitemiii{--}
+\renewcommand\labelitemiv{--}
+
+% Нумерованные списки разной вложенности
+\renewcommand\labelenumi{\arabic{enumi})}
+\renewcommand\labelenumii{\asbuk{enumii})}
+\renewcommand\labelenumiii{\arabic{enumiii})}
+\renewcommand\labelenumiv{\asbuk{enumiv})}
+
+\makeatletter
+% Буквы для нумерации списка (исключены ё, з, щ, ч, ъ, ы, ь)
+% Подробнее https://ctan.math.illinois.edu/macros/latex/required/babel/contrib/russian/russianb.pdf 
+\def\russian@alph#1{\ifcase#1\or
+    а\or б\or в\or г\or д\or е\or ж\or
+    и\or к\or л\or м\or н\or о\or п\or 
+    р\or с\or т\or у\or ф\or х\or ц\or 
+    ш\or э\or ю\or я\else\@ctrerr\fi}
+\def\russian@Alph#1{\ifcase#1\or
+    А\or Б\or В\or Г\or Д\or Е\or Ж\or
+    И\or К\or Л\or М\or Н\or О\or П\or 
+    Р\or С\or Т\or У\or Ф\or Х\or Ц\or 
+    Ш\or Э\or Ю\or Я\else\@ctrerr\fi}
+
+\patchcmd{\l@section}{#1}{\textnormal{\uppercase{#1}}}{}{} % Разделы в оглавлении без выделения жирным, в верхнем регистре
+\patchcmd{\l@section}{#2}{\textnormal{#2}}{}{} % Страницы без выделения жирным
+
+\apptocmd{\appendix}{
+    \renewcommand{\thesection}{\Asbuk{section}}
+    \titleformat{\section}{\filcenter\fontsize{16pt}{16pt}\selectfont\bfseries}{}{0pt}{\MakeUppercase{\appendixname}~\thesection \\}{}{} % Изменение формата раздела приложения
+    
+    \let\oldsec\section
+    \renewcommand{\section}{
+        \clearpage
+        \phantomsection
+        \refstepcounter{section}
+        \addcontentsline{toc}{section}{\appendixname~\thesection}
+        \oldsec*} % Нумерация раздела после названия
+}
+\makeatother
+
+\usepackage[labelsep=endash]{caption} % Настройка пунктуации
+\captionsetup[table]{justification=raggedright, singlelinecheck=false} % Выравнивание по левому краю надписи таблицы
+
+\addto\captionsrussian{\renewcommand{\figurename}{Рисунок}} % Переопределение caption из babel
+
+% Пакет делает ссылки кликабельными и дает возможность добавить метаданные .pdf документа
+\usepackage{hyperref}
+% Метаданные .pdf документа, отключение подсветки ссылок
+\hypersetup{pdftitle={Методы и средства защиты информации}, pdfauthor={И. О. Фамилия}, colorlinks=false, pdfborder={0 0 0}}
+
+\begin{document}
+
+\begin{titlepage}
+    \pagestyle{empty}
+    \setlength\parindent{0pt}
+    \begin{center}
+        \includegraphics[width=2.5cm]{MIREA_Gerb_Black} \par
+        МИНОБРНАУКИ РОССИИ \par 
+        Федеральное государственное бюджетное образовательное учреждение высшего образования \par
+        \textbf{<<МИРЭА --- Российский технологический университет>>} \par
+        \textbf{РТУ МИРЭА}
+    \end{center}
+    \bigskip\par
+    \textbf{Институт:} \uline{Институт кибербезопасности и цифровых технологий} \par
+    \textbf{Специальность (направление):} \uline{Технологии искусственного интеллекта в безопасности (09.03.02 Информационные системы и технологии)} \par
+    \textbf{Кафедра:} \uline{КБ-14 <<Цифровые технологии обработки данных>>} \par
+    \textbf{Дисциплина:} \uline{Методы и средства защиты информации} \bigskip\par
+    \begin{center}
+        ОТЧЕТ ПО \par
+        ПРАКТИЧЕСКОЙ РАБОТЕ \textnumero{}~1 \par
+        Название работы
+    \end{center}
+    \begin{flushright}
+        Выполнил студент группы \par
+        БСБО-05-20: \par
+        Фамилия И.О. \par
+        Проверил ассистент: \par
+        Акимов Э.М.
+    \end{flushright}
+    \begin{center}
+        \vfill \textbf{Москва~\the\year{}~г.}
+    \end{center}
+\end{titlepage}
+\addtocounter{page}{1} % 
+
+\begin{abstract}
+    
+    \subsection*{Метаданные .pdf}
+    
+    Не забудьте в преамбуле в команде \verb"\hypersetup" поменять значение полей \verb"pdftitle={"Название моего документа\verb"}", \verb"pdfauthor={"Моё имя\verb"}".
+    
+\end{abstract}
+
+\tableofcontents
+
+\section*{Введение}
+\phantomsection
+\addcontentsline{toc}{section}{Введение}
+
+Текст введения.
+
+\section{Структура документа}
+
+Структура документа совместима со стандартным классом документа article.
+
+\subsection{Титульная страница}
+
+Титульная страница находится в окружении titlepage в начале документа:
+\begin{verbatim}
+\begin{titlepage}
+...
+\end{titlepage}
+\end{verbatim}
+
+При изменении кол-ва титульных страниц необходимо отметить кол-во в счетчике станиц. Пример:
+\begin{verbatim}
+\begin{titlepage}
+...
+\end{titlepage}
+\addtocounter{page}{1}
+\end{verbatim}
+
+\subsection{Аннотация}
+
+\begin{verbatim}
+\begin{abstract}
+...
+\end{abstract}
+\end{verbatim}
+
+\subsection{Оглавление}
+
+\begin{verbatim}
+\tableofcontents
+\end{verbatim}
+
+\subsection{Введение, раздел без нумерации}
+
+\noindent\verb"\section*{"Введение\verb"}"\\
+\verb"\phantomsection"\\
+\verb"\addcontentsline{toc}{section}{"Введение\verb"}"\\
+\verb"..."
+
+\subsection{Раздел}
+
+\begin{verbatim}
+\section{...}
+...
+\end{verbatim}
+
+\subsection{Подраздел}
+
+\begin{verbatim}
+\subsection{...}
+...
+\end{verbatim}
+
+\subsection{Пункт}
+
+\begin{verbatim}
+\subsubsection{...}
+...
+\end{verbatim}
+
+\subsubsection{Пример пункта}
+
+Текст пункта.
+
+\subsection{Приложение}
+
+Как и в стандартных классах перед приложениями необходимо указать команду \verb"\appendix".
+
+Пример с одним приложением:
+\begin{verbatim}
+\appendix
+\section{...}
+...
+\end{verbatim}
+
+Пример с тремя приложениями:
+\begin{verbatim}
+\appendix
+\section{...}
+...
+\section{...}
+...
+\section{...}
+...
+\end{verbatim}
+
+Ссылка на приложение:
+\begin{verbatim}
+\ref{...}
+\end{verbatim}
+
+Пример ссылки на приложение~\ref{appendix:test_label}.
+
+За порядком приложений необходимо следить самостоятельно.
+
+\subsection{Список}
+
+\begin{verbatim}
+\begin{itemize}
+    \item ...,
+    ...
+\end{itemize}
+\end{verbatim}
+
+\begin{itemize}
+    \item[] Пример списка:
+    \item первый уровень вложенности,
+    \begin{itemize}
+        \item второй,
+        \begin{itemize}
+            \item третий,
+            \begin{itemize}
+                \item четвертый.
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\subsection{Перечисление}
+
+\begin{verbatim}
+\begin{enumerate}
+    \item ...;
+    ...
+\end{enumerate} 
+\end{verbatim}
+
+\begin{enumerate}
+    \item[] Пример перечисления:
+    \item первый уровень вложенности;
+    \begin{enumerate}
+        \item второй;
+        \begin{enumerate}
+            \item третий;
+            \begin{enumerate}
+                \item четвертый;
+                \item б;
+                \item в;
+                \item г;
+                \item д;
+                \item е;
+                \item ж;
+                \item и;
+                \item к;
+                \item л;
+                \item м;
+                \item н;
+                \item о;
+                \item п;
+                \item р;
+                \item с;
+                \item т;
+                \item у;
+                \item ф;
+                \item x;
+                \item ц;
+                \item ш;
+                \item э;
+                \item ю;
+                \item я, при наличии б\'ольшего кол-ва элементов компилятор выдаст ошибку.
+            \end{enumerate}
+        \end{enumerate}
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Иллюстрация}
+ 
+Пакет graphicx подключен. См. рисунок~\ref{fig:test_label} на стр.~\pageref{fig:test_label}.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=.5\textwidth]{MIREA_Gerb_Black}
+    \parskip=6pt
+    \caption{Подпись ниже рисунка по центру}
+    \label{fig:test_label}
+\end{figure}
+
+Обратите внимание, что окружение figure является \emph{плавающим}, и иллюстрация может появиться не там, где Вы ожидаете. Для размещения иллюстрации в конкретное место необходимо воспользоваться опцией H из пакета float (не подключен).
+
+\subsection{Таблица}
+
+См. таблицу~\ref{tab:test_label} на стр.~\pageref{tab:test_label}.
+
+\begin{table}[htb]
+    \caption{Подпись выше таблицы слева}
+    \centering
+    \begin{tabular}{ |c|c|c|c|c| } 
+        \hline
+        ячейка 1 & ячейка 2 & ячейка 3 & ячейка 4 & ячейка 5 \\ \hline
+        ячейка 6 & ячейка 7 & ячейка 8 & ячейка 9 & ячейка 10 \\ \hline
+    \end{tabular}
+    \label{tab:test_label}
+\end{table}
+
+Обратите внимание, что окружение table является \emph{плавающим}, и таблица может появиться не там, где Вы ожидаете. Для размещения таблицы в конкретное место необходимо воспользоваться опцией H из пакета float (не подключен).
+
+\subsection{Уравнение и формула}
+
+См. формулу~\ref{eq:test_label}.
+
+\begin{equation}\label{eq:test_label}
+    \text{минус}\,a\times b=c ,
+\end{equation}
+где $a$ --- первая переменная; \\
+$b$ --- вторая переменная; \\
+$c$ --- третья переменная.
+
+\appendix
+
+\section{Использованные пакеты}
+\label{appendix:used_packages}
+
+\begin{itemize}
+    \item caption,
+    \item fontspec,
+    \item geometry,
+    \item graphicx,
+    \item hyperref,
+    \item indentfirst,
+    \item newtxmath,
+    \item titlesec,
+    \item tocloft,
+    \item ulem.
+\end{itemize}
+
+\section{Название второго приложения}
+\label{appendix:test_label}
+
+Содержание второго приложения.
+
+\end{document}

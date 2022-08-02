@@ -1,0 +1,126 @@
+% !TeX program = xelatex
+% !TeX encoding = UTF-8
+% !TeX root    = document_template.tex
+\documentclass{../mirea-prog-lang}
+
+\usepackage{hyperref}
+\hypersetup{pdftitle={Шаблон для mirea-prog-lang}, pdfauthor={В. С. Верхотуров}}
+
+\usepackage{graphicx}
+
+\begin{document}
+	
+\begin{titlepage}
+	\pagestyle{empty}
+	\setlength\parindent{0pt}
+	\newcommand{\blankDate}[2]{\mbox{\uline{<<\makebox[.7cm]{#1}>>~\makebox[2cm]{#2}~\the\year{}~г.}}} % {день}{месяц}
+	\newcommand\blankLine[2]{$\underset{\text{#1}}{\text{\uline{#2}}}$}
+	\begin{center}
+		\includegraphics[width=2.5cm]{../MIREA_Gerb_Black} \par
+		МИНОБРНАУКИ РОССИИ \par 
+		Федеральное государственное бюджетное образовательное учреждение высшего образования \par
+		\textbf{<<МИРЭА~--- Российский технологический университет>>} \par
+		\textbf{\fontsize{16pt}{16pt}\selectfont РТУ МИРЭА} \par
+		\blankLine{(наименование института, филиала)}{Институт кибербезопасности и цифровых технологий} \par
+		\blankLine{(наименование кафедры)}{Кафедра КБ-2 <<Прикладные информационные технологии>>} \par
+		\begin{flushright}
+			\begin{minipage}{.5\textwidth}
+				\fontsize{12pt}{12pt}\selectfont
+				\setlength{\parskip}{0pt}
+				\centering
+				Утверждаю \par
+				Заведующий кафедрой КБ-2 \par
+				\blankLine{(Ф.И.О.)}{И.~О.~Фамилия}~\blankLine{(подпись)}{\hspace{2cm}} \par
+				\blankDate{}{}
+			\end{minipage}
+		\end{flushright}
+		{\fontsize{16pt}{16pt}\selectfont
+			\textbf{КУРСОВАЯ РАБОТА}} \par
+		по дисциплине \blankLine{(наименование дисциплины)}{Языки программирования}
+	\end{center}
+	\textbf{Тема курсовой работы \uline{\hspace{11cm}}} \bigskip\par
+	Студент группы \blankLine{учебная группа, фамилия, имя, отчество студента}{БСБО-05-20 В.~С.~Верхотуров\hspace{3cm}} \hfill\blankLine{подпись студента}{\hspace{3cm}} \bigskip\par
+	Руководитель курсовой работы \blankLine{должность, звание, учёная степень}{\hspace{6cm}} \hfill\blankLine{подпись руководителя}{\hspace{3cm}} \bigskip\par
+	Рецензент (при наличии) \blankLine{должность, звание, учёная степень}{\hspace{7cm}} \hfill\blankLine{подпись рецензента}{\hspace{3cm}} \bigskip\par
+	\begin{tabular}{@{}ll}
+		Работа предоставлена к защите & \blankDate{}{} \bigskip\\
+		Допущен к защите & \blankDate{}{}
+	\end{tabular}
+	\begin{center}
+		\vfill Москва~--- \the\year{}~г.
+	\end{center}
+	\newpage
+	\textbf{Срок предоставления к защите курсовой работы до} \hfill\blankDate{}{} \par
+	\textbf{Задание на курсовую работу выдал} \blankLine{(Ф.И.О. руководителя)}{\hspace{4cm}} \hfill\blankLine{(подпись руководителя)}{\hspace{3cm}} \par
+	\hfill\blankDate{}{} \par
+	\textbf{Задание на курсовую работу получил} \blankLine{(Ф.И.О. исполнителя)}{\hspace{3cm}} \hfill\blankLine{(подпись исполнителя)}{\hspace{3cm}} \par\bigskip
+	\begin{center}
+		Москва~--- \the\year{}~г.
+	\end{center}
+\end{titlepage}
+\addtocounter{page}{2}
+
+
+
+\begin{abstract}
+Моя аннотация.
+\end{abstract}
+
+
+
+\tableofcontents
+
+
+
+\section*{Введение}
+\phantomsection
+\addcontentsline{toc}{section}{Введение}
+
+Моё введение.
+
+
+
+\section{Теоретическая часть}
+
+Моя теоретическая часть.
+
+\subsection{Мой подраздел}
+
+Мой подраздел.
+
+
+
+\section{Практическая часть}
+
+Моя практическая часть.
+
+
+
+\section*{Заключение}
+\phantomsection
+\addcontentsline{toc}{section}{Заключение}
+
+Моё заключение.
+
+
+
+\begin{thebibliography}{99\kern\bibindent}
+	\bibitem{bib:mybook} Моя книга.
+	\bibitem{bib:mybook2} Моя вторая книга. 
+\end{thebibliography}
+
+
+
+\appendix
+
+\section{Моё приложение}
+
+Моё приложение.
+
+\section{Моё второе приложение}
+
+Моё второе приложение.
+
+
+	
+\end{document}
