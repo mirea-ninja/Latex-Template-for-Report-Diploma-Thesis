@@ -1,0 +1,61 @@
+% !TeX program = xelatex
+% !TeX encoding = UTF-8
+% !TeX root    = listings.tex
+\documentclass{../mirea-prog-lang}
+
+\usepackage{hyperref}
+\hypersetup{pdftitle={Демонстрация пакета Listings в mirea-prog-lang}, pdfauthor={В. С. Верхотуров}}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{basicstyle=\footnotesize, breaklines=true, numbers=left, captionpos=t, showstringspaces=false, commentstyle=\color{teal}, stringstyle=\color{red}, keywordstyle=\color{violet}}  % Настройки, применяемые ко всем листингам
+
+\usepackage{caption}
+\captionsetup[lstlisting]{justification=raggedright, singlelinecheck=false}
+
+
+\title{Демонстрация пакета listings\footnote{\url{https://github.com/ValeryVerkhoturov/mirea-kb2-programming-languages}}}
+\date{\today}
+
+\begin{document}
+	
+\maketitle
+\addtocounter{page}{1}
+	
+\tableofcontents
+	
+\section{Документация listings}
+
+Документацию listings см. в~\url{https://ctan.org/pkg/listings}.
+
+
+\section{Пример листинга для С++ ISO}
+
+См. листинг~\ref{lst:factorial}.
+
+\begin{lstlisting}[language={[ISO]{C++}}, caption={Нахождение факториала}, label=lst:factorial]
+#include <iostream>
+using namespace std;
+
+int main() {
+	int n;
+	long double factorial = 1.0;
+	
+	cout << "Enter a positive integer: ";
+	cin >> n;
+	
+	if (n < 0)
+	cout << "Error! Factorial of a negative number doesn't exist.";
+	else {
+		for(int i = 1; i <= n; ++i) {
+			factorial *= i;
+		}
+		cout << "Factorial of " << n << " = " << factorial;    
+	}
+	
+	return 0;
+}
+\end{lstlisting}
+
+
+\end{document}
