@@ -1,0 +1,78 @@
+%%%%%%%%%%%%%%%%% Оформление ГОСТА%%%%%%%%%%%%%%%%%
+
+% Все параметры указаны в ГОСТЕ на 2021, а именно:
+
+% Шрифт для курсовой Times New Roman, размер – 14 пт.
+\setdefaultlanguage[spelling=modern]{russian}
+    \setotherlanguage{english}
+    
+\setmonofont{Times New Roman}
+\setmainfont{Times New Roman} 
+\setromanfont{Times New Roman} 
+\newfontfamily\cyrillicfont{Times New Roman}
+
+
+
+
+% шрифт для URL-ссылок
+\urlstyle{same} 
+
+% Междустрочный интервал должен быть равен 1.5 сантиметра.
+\linespread{1.5} % междустрочный интервал
+
+
+% Каждая новая строка должна начинаться с отступа равного 1.25 сантиметра.
+\setlength{\parindent}{1.25cm} % отступ для абзаца
+
+
+% Текст, который является основным содержанием, должен быть выровнен по ширине по умолчанию включен из-за типа документа в main.tex
+
+
+%%%%%%%%%%%%%%%%%% Дополнения %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Путь до папки с изображениями
+\graphicspath{ {./Images/} }
+
+% Внесение titlepage в учёт счётчика страниц
+\makeatletter
+\renewenvironment{titlepage} {
+	\thispagestyle{empty}
+}
+
+
+% Цвет гиперссылок и цитирования
+\usepackage{hyperref} 
+ \hypersetup{ 
+     colorlinks=true, 
+     linkcolor=black, 
+     filecolor=blue, 
+     citecolor = black,       
+     urlcolor=blue, 
+     }
+    
+
+% Нумерация рисунков
+\counterwithin{figure}{section}
+
+% Нумерация таблиц
+\counterwithin{table}{section}
+
+\counterwithin{table}{section}
+
+% шрифт для листингов с лигатурами
+\setmonofont{FiraCode-Regular.otf}[
+	SizeFeatures={Size=10},
+	Path = Settings/,
+	Contextuals=Alternate
+]
+
+% Перенос текста при переполнении
+\emergencystretch=25pt
+
+
+% настройка подсветки кода и окружения для листингов
+%\usemintedstyle{colorful} % делает подсветку для кода
+\newenvironment{code}{\captionsetup{type=listing}}{}
+
+
+% Посмотреть ещё стили можно тут https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted
